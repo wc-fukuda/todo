@@ -1,27 +1,20 @@
 <template>
   <div>
     <ul id="todolist">
-      <li v-for="(item, index) in items" v-bind:key="item.id">
-        {{ item.message }}<button id="remove-button" @click="$emit('remove', $event, index)">削除</button>
+      <li v-for="(todo, index) in todos" v-bind:key="todo.id">
+        {{ todo.message }}<button id="remove-button">削除</button>
       </li>
     </ul>
   </div>
 </template>
- 
+
 <script>
 export default {
   name: 'todo-list',
-  props: {  
-    items: {
-      type: Array,
-      default: function() {
-        return [];
-      }
-    },
-  },
+  //リストを受け取る
 }
 </script>
- 
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {

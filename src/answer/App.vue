@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1>Todo List</h1>
-    <span>作業名：</span><input type="text"><button id="add">追加</button>
+    <span>作業名：</span><input type="text" v-model="task"><button id="add" v-on:click="addTodo">追加</button>
     <ul id="todolist">
-      <li>
-        ダミー<button id="remove-button">削除</button>
+      <li v-for="(todo, index) in todos" v-bind:key="todo.id">
+        {{ todo.message }}<button id="remove-button" v-on:click="removeTodo(index)">削除</button>
       </li>
     </ul>
   </div>
@@ -26,14 +26,16 @@ export default {
   methods: {
     //TODOリストにリストを追加する処理
     addTodo: function() {
-      //入力したタスク名をTODOリストの追加
-      //タスク名の初期化の処理
-      //TODOリストのid(key)を重複しないようにする処理
+      this.todos.push({
+        message: this.task, id: this.count
+      });
+      this.task = "";
+      this.count++;
     },
 
     //TODOリストから指定のリストを削除する処理
-    removeTodo: function() {
-      //タスクを削除する処理
+    removeTodo: function(index) {
+      this.todos.splice(index, 1);
     }
   },
 }
