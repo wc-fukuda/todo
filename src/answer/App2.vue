@@ -36,15 +36,17 @@ export default {
       this.todos.splice(index, 1);
     }
   },
-  mounted: function() {
+  created: function() {
     this.todos = JSON.parse(localStorage.getItem("todos")) || [];
     const todos = this.todos;
     if(todos.length){
+      //空でない場合
       this.count = this.todos[todos.length-1].id + 1;
     }else {
+      //空の場合
       this.count = this.todos.length;
     }
-    console.log(this.count);
+    //ページ離脱前にtodosのというキーにJSON形式でデータを格納する
     window.onbeforeunload = function() {
       localStorage.setItem("todos", JSON.stringify(todos));
     }
