@@ -3,6 +3,7 @@
     <ul id="todolist">
       <li v-for="(todo, index) in todos" v-bind:key="todo.id">
         {{ todo.message }}<button id="remove-button">削除</button>
+        <!-- 4.削除ボタンを押されたことを親に伝える記述を追記 -->
       </li>
     </ul>
   </div>
@@ -11,7 +12,7 @@
 <script>
 export default {
   name: 'todo-list',
-  //リストを受け取る
+  //5.TODOリストのデータを引き継ぐ
 }
 </script>
 

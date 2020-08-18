@@ -1,8 +1,11 @@
 <template>
+  <!-- さっきは一つのVueファイルで作ったTODOリストを役割ごとにコンポーネントを分けましょう。 -->
   <div id="app">
     <h1>Todo List</h1>
     <span>作業名：</span><input v-model="task" type="text"><button id="add" v-on:click="addTodo">追加</button>
-  　<!-- コンポーネントをここに挿入 -->
+  　<!-- 1.コンポーネントをここに挿入 -->
+    <!-- 2.子にTODOリストを引き継ぐ記述を追記 -->
+    <!-- 3.子側で削除のボタンを押したことを検知する記述追記 -->
   </div>
 </template>
 

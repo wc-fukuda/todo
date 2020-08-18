@@ -1,8 +1,18 @@
 <template>
   <div id="app">
+    <!--
+      用意されたテンプレートから、下記機能があるTODOリストを作成してください。
+      ・v-forでリストを作成できる
+      ・入力フォームで入力した値を「追加」ボタンでリストに追加できる
+      ・リストの「削除」ボタンを押すと、削除ができる
+     -->
     <h1>Todo List</h1>
+    <!-- 1.inputをv-modelに -->
+    <!-- 2.追加ボタンを押した場合にaddTodoメソッドにアクセス -->
     <span>作業名：</span><input type="text"><button id="add">追加</button>
     <ul id="todolist">
+      <!-- 3.ダミーのli要素をv-forに書き換える -->
+      <!-- 4.削除ボタンを押した場合にremoveTodoメソッドにアクセス -->
       <li>
         ダミー<button id="remove-button">削除</button>
       </li>
@@ -26,14 +36,14 @@ export default {
   methods: {
     //TODOリストにリストを追加する処理
     addTodo: function() {
-      //入力したタスク名をTODOリストの追加
-      //タスク名の初期化の処理
-      //TODOリストのid(key)を重複しないようにする処理
+      //5.入力したタスク名をTODOリストの追加
+      //6.入力フォームに記載されているタスクの初期化
+      //7.キーが重複しないためにインクリメント処理
     },
 
     //TODOリストから指定のリストを削除する処理
     removeTodo: function() {
-      //タスクを削除する処理
+      //8.削除するタスクをリストから削除
     }
   },
 }
