@@ -1,5 +1,5 @@
 <template>
-  <!-- localStrageで値を保存する処理を加えてリロードしてもTODOリストが残るものを作成しましょう -->
+  <!-- 追加ボタンを押した場合、Strapi APIにアクセスして、API側のデータも追加しましょう。 -->
   <div id="app">
     <h1>Todo List</h1>
     <span>作業名：</span><input v-model="task" type="text"><button id="add" v-on:click="addTodo">追加</button>
@@ -25,11 +25,6 @@ export default {
   },
   methods: {
     addTodo: function() {
-      //入力したタスク名
-      //タスク名の初期化
-      this.todos.push({
-        message: this.task, id: this.count
-      });
       //thisの束縛
       const self = this;
       this.axios.post(self.url, {task: self.task,id: self.count})
@@ -41,6 +36,10 @@ export default {
       // handle error(axiosの処理にエラーが発生した場合に処理させたいことを記述)
           console.log(error);
       })
+
+      this.todos.push({
+        message: this.task, id: this.count
+      });
       this.task = "";
       this.count++;
     },

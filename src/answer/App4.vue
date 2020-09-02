@@ -1,5 +1,5 @@
 <template>
-  <!-- localStrageで値を保存する処理を加えてリロードしてもTODOリストが残るものを作成しましょう -->
+  <!--  削除ボタンを押した場合、Strapi APIにアクセスして、API側のデータも削除しましょう。 -->
   <div id="app">
     <h1>Todo List</h1>
     <span>作業名：</span><input v-model="task" type="text"><button id="add" v-on:click="addTodo">追加</button>
@@ -34,9 +34,6 @@ export default {
       this.count++;
     },
     removeTodo: function(index,id) {
-      //タスクを削除
-      this.todos.splice(index, 1);
-
       const self = this;
       this.axios.delete(self.url + id)
       // handle success(axiosの処理が成功した場合に処理させたいことを記述)
@@ -47,6 +44,9 @@ export default {
       // handle error(axiosの処理にエラーが発生した場合に処理させたいことを記述)
           console.log(error);
       })
+
+      //タスクを削除
+      this.todos.splice(index, 1);
     }
   },
   //ここにlocalStraageの処理を追加

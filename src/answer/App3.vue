@@ -1,5 +1,5 @@
 <template>
-  <!-- localStrageで値を保存する処理を加えてリロードしてもTODOリストが残るものを作成しましょう -->
+  <!-- 外部から(WEBから)アクセスして、データの表示をしましょう。 -->
   <div id="app">
     <h1>Todo List</h1>
     <span>作業名：</span><input v-model="task" type="text"><button id="add" v-on:click="addTodo">追加</button>

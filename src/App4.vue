@@ -38,7 +38,7 @@ export default {
       this.todos.splice(index, 1);
     }
   },
-  //ここにlocalStraageの処理を追加
+
   created: function(){
     const self = this;
     this.axios.get(self.url)
